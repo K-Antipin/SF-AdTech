@@ -1,0 +1,17 @@
+{
+  "autoload": {
+    "psr-4": {
+      "App\\": "src/",
+      "App\\Kernel\\": "kernel/"
+    }
+  },
+  "require": {
+    "php": "^8.2",
+    "gabordemooij/redbean": "dev-master",
+    "monolog/monolog": "dev-main"
+  },
+  "require-dev": {
+    "laravel/pint": "^1.13",
+    "symfony/var-dumper": "^6.3"
+  }
+}

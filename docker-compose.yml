@@ -1,0 +1,50 @@
+version: '3'
+
+services:
+    web:
+        build: 
+            context: httpd
+        ports:
+            - 80:80
+        volumes:
+            - ./www:/var/www/html
+            - ./httpd/final.project.conf:/etc/apache2/sites-available/000-default.conf
+            - ./httpd/apache2.conf:/etc/apache2/apache2.conf
+        # command: sh -c "composer install"
+            # - sh -c "composer install"
+            # - ln -s /var/www/html/storage /var/www/html/public/storage
+        container_name: web
+        networks:
+            - app-network
+    db:
+        build:
+            context: ./mysql
+            dockerfile: Dockerfile
+        image: mysql:8
+        container_name: database
+        ports:
+            - "3306:3306"
+        # описываем, какую БД мы создаём
+        environment:
+            MYSQL_DATABASE: ${MYSQL_DATABASE}
+            MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+            MYSQL_ROOT_USER: ${MYSQL_ROOT_USER}
+        volumes:
+            - ./dbdata:/var/lib/mysql
+        command: mysqld --character-set-server=utf8 --collation-server=utf8_unicode_ci
+        networks:
+            - app-network
+    phpmyadmin:
+        image: phpmyadmin
+        restart: always
+        ports:
+            - 8070:80
+        environment:
+            - PMA_ARBITRARY=1
+        container_name: phpmyadmins
+        networks:
+            - app-network
+#Docker Networks
+networks:
+    app-network:
+        driver: bridge
