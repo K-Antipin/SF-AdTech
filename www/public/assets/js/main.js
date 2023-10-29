@@ -414,7 +414,7 @@ document.addEventListener('DOMContentLoaded', () => {
         form.addEventListener('submit', function (e) {
             e.preventDefault();
             let form = e.target;
-            if(form.action === 'http://localhost/register') form.submit();
+            if(form.action.indexOf("register") >= 0) form.submit();
             send_form(form.action, form)
                 .then(result => {
                     if (result) {
