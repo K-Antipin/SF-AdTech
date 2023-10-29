@@ -18,7 +18,7 @@ class AdminController extends Controller
                 'subscribers' => $subscribe->allUser($this->auth()->id()),
                 'offers' => $offers->allUser($this->auth()->id()),
                 'request' => $this->request(),
-            ]);
+            ], 'Админка');
         } else {
             $this->redirect('/');
         }
@@ -32,7 +32,7 @@ class AdminController extends Controller
             $this->view("/{$this->auth()->user()->role()}/offers", [
                 'offers' => $offers->all(),
                 'request' => $this->request(),
-            ]);
+            ], 'Офферы');
         } else {
             $this->redirect('/');
         }
@@ -46,7 +46,7 @@ class AdminController extends Controller
             $this->view("/{$this->auth()->user()->role()}/subscribers", [
                 'subscribers' => $subscribe->all(),
                 'request' => $this->request(),
-            ]);
+            ], 'Подписки');
         } else {
             $this->redirect('/');
         }
@@ -73,7 +73,7 @@ class AdminController extends Controller
                 'clicks' => $clicks,
                 'rejection' => $rejection,
                 'cost' => ($cost * 0.2),
-            ]);
+            ], 'Статистика');
         } else {
             $this->redirect('/');
         }

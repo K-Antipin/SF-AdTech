@@ -17,12 +17,12 @@ class OfferController extends Controller
 
         $this->view('admin/offers/add', [
             'categories' => $categories->all(),
-        ]);
+        ], 'Добавление оффера');
     }
 
     public function add(): void
     {
-        $this->view('admin/offers/add');
+        $this->view('admin/offers/add', [], 'Добавление оффера');
     }
 
     public function store(): void

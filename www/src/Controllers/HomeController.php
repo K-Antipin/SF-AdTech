@@ -24,12 +24,12 @@ class HomeController extends Controller
                 'subscribers' => $subscribe->all(),
                 'offers' => $offers->all(),
                 'request' => $this->request(),
-            ]);
+            ], 'Главная страница');
         }
     }
 
     public function error(): void
     {
-        $this->view('404', [], 'Главная страница');
+        $this->view('404', [], 'Страница не нейдена');
     }
 }
