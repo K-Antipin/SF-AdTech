@@ -409,23 +409,23 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    if (document.querySelector('#register_form')) {
-        let form = document.querySelector('#register_form');
-        form.addEventListener('submit', function (e) {
-            e.preventDefault();
-            let form = e.target;
-            if(form.action.indexOf("register") >= 0) form.submit();
-            send_form(form.action, form)
-                .then(result => {
-                    if (result) {
-                        let pop_up = document.querySelector('#pop_up_ok');
-                        pop_up.classList.add('pop_up_ok_active');
-                        setTimeout(() => {
-                            pop_up.classList.remove('pop_up_ok_active');
-                            // form.reset();
-                        }, 1000);
-                    }
-                });
-        });
-    }
+    // if (document.querySelector('#register_form')) {
+    //     let form = document.querySelector('#register_form');
+    //     form.addEventListener('submit', function (e) {
+    //         e.preventDefault();
+    //         let form = e.target;
+    //         if(form.action.indexOf("register") >= 0) form.submit();
+    //         send_form(form.action, form)
+    //             .then(result => {
+    //                 if (result) {
+    //                     let pop_up = document.querySelector('#pop_up_ok');
+    //                     pop_up.classList.add('pop_up_ok_active');
+    //                     setTimeout(() => {
+    //                         pop_up.classList.remove('pop_up_ok_active');
+    //                         // form.reset();
+    //                     }, 1000);
+    //                 }
+    //             });
+    //     });
+    // }
 });

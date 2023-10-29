@@ -56,8 +56,8 @@ class UserController extends Controller
         
         $this->db()::store($user);
 
-        // $this->redirect('/user?id=' . $id);
-        die(json_encode(true));
+        $this->redirect('/user?id=' . $id);
+        // die(json_encode(true));
     
     }
 
