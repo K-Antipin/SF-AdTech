@@ -36,6 +36,6 @@ class RegisterController extends Controller
             'password' => password_hash($this->request()->input('password'), PASSWORD_DEFAULT),
         ]);
 
-        $this->redirect('/');
+        die(json_encode('redirect'));
     }
 }
