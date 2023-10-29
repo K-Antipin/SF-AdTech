@@ -29,6 +29,13 @@ class RegisterController extends Controller
             $this->redirect('/register');
         }
 
+        $user = $this->db()->first('users', ['email'=> $this->request()->input('email')]);
+
+        if(isset($user)) {
+            $this->session()->set('email', ['the user exists']);
+            $this->redirect('/register');
+        }
+
         $this->db()->insert('users', [
             'name' => $this->request()->input('name'),
             'role' => $this->request()->input('role'),

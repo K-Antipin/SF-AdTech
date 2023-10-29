@@ -4,7 +4,6 @@
  * @var \App\Kernel\Session\SessionInterface $session
  * @var \App\Controllers\UserController $user
  */
-// dd($user);
 ?>
 
 <?php $view->component('start'); ?>
