@@ -13,9 +13,9 @@
 1. Установить Docker
 2. Установить Docker Compose
 3. У веб сервера должен быть включен mod_rewrite `RewriteEngine on`
+6. Переименовать .env.example в .env
 4. Звпустить установщик контейнеров из терминала `docker-compose up -d`
 5. Зайти в контейнер `php` и ввести комманду `composer install`
-6. Переименовать .env.example в .env
 7. Чтобы приложение было доступно по адрессу application.local, его нужно внести в hosts `127.0.0.1 final.project`
 
 
