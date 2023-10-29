@@ -63,6 +63,11 @@ class Validator implements ValidatorInterface
                     return "Field $key must be webmaster or advertiser";
                 }
                 break;
+            case 'number':
+                if (!is_numeric($value)) {
+                    return "Field $key must be number";
+                }
+                break;
             case 'email':
                 if (! filter_var($value, FILTER_VALIDATE_EMAIL)) {
                     return "Field $key must be a valid email address";

@@ -30,9 +30,10 @@ class OfferController extends Controller
         $validation = $this->request()->validate([
             'name' => ['required', 'min:3', 'max:50'],
             'description' => ['required'],
-            'price' => ['required'],
+            'price' => ['number', 'required'],
             'url' => ['required'],
         ]);
+
 
         if (!$validation) {
             // foreach ($this->request()->errors() as $field => $errors) {
