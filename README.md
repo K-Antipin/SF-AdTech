@@ -38,3 +38,14 @@
 Статистика у вебмастеров и рекламодателей по доходам, расходам и т.д. отображается в оффере (вебмастер так же смотрим там, перейти можно из подписки).
 У администратора отдельно можно посмотреть общую статистику в разделе "Статистика".
 P.S. Какоето время сайт недоступен, пока composer устанавливает зависимости.
+
+### Возможности приложения
+https://skrinshoter.ru/vMY6VmsKUKz?a
+https://skrinshoter.ru/vMYI81o9GYC?a
+https://skrinshoter.ru/vMYUqGLpMGe?a
+https://skrinshoter.ru/vMYz7crOaet?a
+https://skrinshoter.ru/vMYCp8KEGyh?a
+https://skrinshoter.ru/vMYy1HdrB5V?a
+https://skrinshoter.ru/vMY4cjHqqvh?a
+https://skrinshoter.ru/vMYYXkddRsn?a
+https://skrinshoter.ru/vMYLaUD3ErJ?a

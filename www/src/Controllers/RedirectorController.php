@@ -18,7 +18,7 @@ class RedirectorController extends Controller
             WHERE subscribe.hash = ?",
             [$this->request()->input('hash')]
         );
-        // dd($data);
+        
         $log = new Logger('mylogger');
         $log->pushHandler(new StreamHandler('mylog.log', Logger::INFO));
         $log->info(

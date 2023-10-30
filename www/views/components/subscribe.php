@@ -24,6 +24,12 @@
                 </span>
             </p>
         <?php } ?>
+        <?php if (!$subscribe->offer()->isActive()) { ?>
+            <p class="card-text"><span class="badge bg-warning warn__badge">
+                    Не активен
+                </span>
+            </p>
+        <?php } ?>
         <p class="card-text">URL <span class="badge bg-warning warn__badge url_hash">
                 <?php echo 'http://' . $request->domain() . '/redirector?hash=' . $subscribe->hash() ?>
             </span>
