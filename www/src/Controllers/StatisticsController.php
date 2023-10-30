@@ -20,7 +20,7 @@ class StatisticsController extends Controller
                 
                 if ($user->role() === 'admin') {
                     $statistics = $this->db()::getAll(
-                        'SELECT * FROM statistics WHERE DATE(`created_at`) >= ? AND DATE(`created_at`) <= ? AND `offer_id` = ?',
+                        'SELECT * FROM statistics WHERE `rejection` = 0 AND DATE(`created_at`) >= ? AND DATE(`created_at`) <= ? AND `offer_id` = ?',
                         [
                             $date_from,
                             $date_to,
