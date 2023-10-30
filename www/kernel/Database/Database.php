@@ -14,18 +14,6 @@ class Database extends R implements DatabaseInterface
         private ConfigInterface $config
     ) {
         $this->connect();
-        try {
-            Database::setup(
-                'mysql:host=db;dbname=final',
-                'root',
-                'root'
-            );
-            if (!R::testConnection()) {
-                throw new RedException('No connection');
-            }
-        } catch (RedException $e) {
-            dd($e->getMessage());
-        }
     }
 
     public function insert(string $table, array $data): int|false
@@ -157,5 +145,19 @@ class Database extends R implements DatabaseInterface
         } catch (\PDOException $exception) {
             exit("Database connection failed: {$exception->getMessage()}");
         }
+
+        try {
+            Database::setup(
+                "mysql:host=$host;dbname=$database",
+                $username,
+                $password
+            );
+            if (!R::testConnection()) {
+                throw new RedException('No connection');
+            }
+        } catch (RedException $e) {
+            dd($e->getMessage());
+        }
+
     }
 }

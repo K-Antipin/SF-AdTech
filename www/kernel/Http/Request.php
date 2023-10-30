@@ -26,7 +26,11 @@ class Request implements RequestInterface
 
     public function uri(): string
     {
-        return strtok($this->server['REQUEST_URI'], '?');
+        $uri = strtok($this->server['REQUEST_URI'], '?');
+        if (strlen($uri) > 1 && substr($uri, -1) === '/') {
+            $uri = substr($uri, 0, -1);
+        }
+        return $uri;
     }
 
     public function method(): string
@@ -34,7 +38,7 @@ class Request implements RequestInterface
         return $this->server['REQUEST_METHOD'];
     }
 
-    public function domain(): string 
+    public function domain(): string
     {
         return $this->server['SERVER_NAME'];
     }
@@ -46,7 +50,7 @@ class Request implements RequestInterface
 
     public function file(string $key): ?UploadedFileInterface
     {
-        if (! isset($this->files[$key])) {
+        if (!isset($this->files[$key])) {
             return null;
         }
 

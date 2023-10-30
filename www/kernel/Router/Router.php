@@ -26,7 +26,6 @@ class Router implements RouterInterface
         private SessionInterface $session,
         private DatabaseInterface $database,
         private AuthInterface $auth,
-        // private StorageInterface $storage
     ) {
         $this->initRoutes();
     }
