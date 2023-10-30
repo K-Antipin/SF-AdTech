@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: db
--- Время создания: Окт 28 2023 г., 16:11
+-- Время создания: Окт 30 2023 г., 07:05
 -- Версия сервера: 8.1.0
 -- Версия PHP: 8.2.11
 
@@ -60,6 +60,13 @@ CREATE TABLE `offers` (
   `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 
+--
+-- Дамп данных таблицы `offers`
+--
+
+INSERT INTO `offers` (`id`, `user_id`, `name`, `description`, `price`, `url`, `active`, `is_admin`, `created_at`, `updated_at`) VALUES
+(1, 2, 'Новый', 'test', 15, 'test.ru', 1, 0, '2023-10-30 06:52:10', '2023-10-30 06:52:10');
+
 -- --------------------------------------------------------
 
 --
@@ -77,6 +84,13 @@ CREATE TABLE `statistics` (
   `rejection` tinyint(1) NOT NULL DEFAULT '0',
   `created_at` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
+
+--
+-- Дамп данных таблицы `statistics`
+--
+
+INSERT INTO `statistics` (`id`, `webmaster_id`, `advertiser_id`, `offer_id`, `price`, `url`, `hash`, `rejection`, `created_at`) VALUES
+(1, 3, 2, 1, 15, 'test.ru', 'aadf4c0ddc0057368026e5f21eb4fabf67185c8358bc3a95fef5c02d3d7dad6b', 0, '2023-10-30 06:57:25');
 
 -- --------------------------------------------------------
 
@@ -97,6 +111,13 @@ CREATE TABLE `subscribe` (
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+
+--
+-- Дамп данных таблицы `subscribe`
+--
+
+INSERT INTO `subscribe` (`id`, `user_id`, `offer_id`, `name`, `price`, `url`, `hash`, `active`, `is_admin`, `created_at`, `updated_at`) VALUES
+(1, 3, 1, 'Новый', 15, 'test.ru', 'aadf4c0ddc0057368026e5f21eb4fabf67185c8358bc3a95fef5c02d3d7dad6b', 1, 0, '2023-10-30 06:56:15', '2023-10-30 06:56:15');
 
 -- --------------------------------------------------------
 
@@ -120,7 +141,9 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `password`, `role`, `status`, `created_at`, `updated_at`) VALUES
-(1, 'test', 'test@test.test', '$2y$10$CKCn7ZJ76lujhhN6nRUgKuLcrxbY.mCGF9tpu5nkGLbrIQAxv8t/.', 'admin', 'active', '2023-10-08 08:44:01', '2023-10-08 08:44:01');
+(1, 'test', 'test@test.test', '$2y$10$CKCn7ZJ76lujhhN6nRUgKuLcrxbY.mCGF9tpu5nkGLbrIQAxv8t/.', 'admin', 'active', '2023-10-08 08:44:01', '2023-10-08 08:44:01'),
+(2, 'Рекламодатель', 'test2@test.test', '$2y$10$s8UJALNJAh5PvOmQRfDjmO2e6qls6AGhsommXNnGo8RPDDP1rVQeW', 'advertiser', 'active', '2023-10-30 06:50:13', '2023-10-30 06:50:13'),
+(3, 'Вебмастер', 'test3@test.test', '$2y$10$FRIQahulSZSfCMqJs6SkPeLOZp2l42eq5LZQIQVqBxusphJpBTOg2', 'webmaster', 'active', '2023-10-30 06:52:49', '2023-10-30 06:52:49');
 
 --
 -- Индексы сохранённых таблиц
@@ -177,25 +200,25 @@ ALTER TABLE `categories`
 -- AUTO_INCREMENT для таблицы `offers`
 --
 ALTER TABLE `offers`
-  MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT для таблицы `statistics`
 --
 ALTER TABLE `statistics`
-  MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT для таблицы `subscribe`
 --
 ALTER TABLE `subscribe`
-  MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT для таблицы `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- Ограничения внешнего ключа сохраненных таблиц
